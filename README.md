@@ -1,45 +1,108 @@
-# Progressive Web Apps @cmda-minor-web · 20-21
+# Web App From Scratch
 
-In this course we will convert the client side web application previously made Web App From Scratch into a server side rendered application. We also add functionalities based on the Service Worker and turn the application into a Progressive Web App. Ultimately we are going to implement a series of optimisations to improve the performance of the application.  
+## 🔦 **Description**
 
-## Learning goals
-- _You understand the difference between client side and server side rendering and you can apply server side rendering
-in your application_
-- _You understand how a Service Worker works and you can implement it in your application._
-- _You understand how the critical render path works and how you can optimize it for a better runtime and / or perceived performance._
+---
 
-[Rubric with learning goals](https://icthva.sharepoint.com/:x:/r/sites/FDMCI_EDU__CMD20_21_Minor_Web_5i7j73jt/_layouts/15/Doc.aspx?sourcedoc=%7B276F53A7-2531-4006-8AD2-08C9A82D3A11%7D&file=PWA%202021%20Rubric.xlsx&action=edit&mobileredirect=true&wdPreviousSession=92686bea-446f-40e3-9303-33fa3f832b82&wdOrigin=TEAMS-ELECTRON.teams.undefined)
+## 🌐 **Live link**
 
-## Program
+---
 
-### Week 1 - Server Side Rendering 📡
+## 🚀 **Features**
 
-Goal: Render web pages server side
+## 📈 **Datasets**
 
-[Exercises](https://github.com/cmda-minor-web/progressive-web-apps-2021/blob/master/course/week-1.md)    
-[Server Side Rendering - slides Declan Rek](https://github.com/cmda-minor-web/progressive-web-apps-1920/blob/master/course/cmd-2021-server-side-rendering.pdf)  
+For this project I made use of the Unsplash API for Developers. The API gives access to the world largest open collection of high quality photos, totally free. With using different querys, like searching, popular, etc etc, the user can receive a lot of information about the image. All the available information contains:
 
+### Used endpoints
 
-### Week 2 - Progressive Web App 🚀
+To make use of my application I've used two differend
 
-Goals: Convert application to a Progressive Web App
+- `https://api.unsplash.com/photos/?client_id=${API_KEY}&per_page=33&order_by=popular`
+- `https://api.unsplash.com/search/photos/?client_id=${API_KEY}&query=${SEARCH_QUERY}&per_page=33&order_by=popular `
+- `https://api.unsplash.com/photos/1gLdTsX3_70?client_id=${API_KEY}`
 
-[Exercises](https://github.com/cmda-minor-web/progressive-web-apps-2021/blob/master/course/week-2.md)  
-[Progressive Web Apps - slides Declan Rek](https://github.com/cmda-minor-web/progressive-web-apps-1920/blob/master/course/cmd-2020-progressive-web-apps.pdf)
+### API Response
 
+After requesting the API you will receive an object with a lot of information about the photos. Below is described what all information means.
 
-### Week 3 - Critical Rendering Path 📉 
+```js
+image = {
+  alt_description:  ,           // Second description
+  blur_hash: ,                  // Hashed ID
+  categories: ,                 // Image categories
+  color: ,                      // Color ?
+  created_at: ,                 // Created timestamp
+  current_user_collections: [], // The current user collection
+  description: ,                // Image description
+  downloads: ,                  // Total downloads
+  exif: ,                       // Camera Settings
+  height: ,                     // Image height in PX
+  id: ,                         // Image ID
+  liked_by_user: ,              // Liked by user
+  likes: ,                      // Total likes
+  links: ,                      // Links to download information
+  location: ,                   // Location of image
+  meta: ,                       // Meta information
+  promoted_at: ,                // Promoted timestamp
+  related_collections: ,        // Related collections with this image
+  sponsorship: ,                // Sponsored image
+  tags: ,                       // Image tags
+  updated_at: ,                 // Updated timestamp
+  urls: {},                     // All image URLS, thumbs, small, regular, full, raw
+  user: ,                       // Information about user
+  views: ,                      // Total image views
+  width: ,                      // Image width in PX
+}
+```
 
-Doel: Optimize the Critical Rendering Path   
-[Exercises](https://github.com/cmda-minor-web/progressive-web-apps-2021/blob/master/course/week-3.md)  
-[Critical Rendering Path - slides Declan Rek](https://github.com/cmda-minor-web/progressive-web-apps-1920/blob/master/course/cmd-2020-critical-rendering-path.pdf)
+---
 
+## 💻 **Installation**
+
+### Clone the repository
+
+```bash
+  git clone https://github.com/joordy/progressive-web-apps-2021.git
+```
+
+### Navigate to the repository and nstall the packages
+
+```bash
+  npm install
+```
+
+### Start local dev environment
+
+```bash
+ // npm run dev
+```
+
+### Build export
+
+```bash
+ // npm run build
+```
+
+---
+
+## 🔍 **Sources**
+
+---
+
+## 🔐 **License**
+
+This is a repository which is licensed as [MIT](https://github.com/joordy/progressive-web-apps-2021/blob/master/LICENSE). Developed by Jordy Fronik ©️ 2021.
+
+---
 
 <!-- Add a link to your live demo in Github Pages 🌐-->
 
 <!-- ☝️ replace this description with a description of your own work -->
 
-<!-- Add a nice image here at the end of the week, showing off your shiny frontend 📸 -->
+<!-- replace the code in the /docs folder with your own, so you can showcase your work with GitHub Pages 🌍 -->
+
+<!-- Add a nice poster image here at the end of the week, showing off your shiny frontend 📸 -->
 
 <!-- Maybe a table of contents here? 📚 -->
 
