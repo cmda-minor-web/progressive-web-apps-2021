@@ -1,0 +1,11 @@
+.errorPage {
+  width: 100vw;
+  height: 100vh;
+  display: grid;
+  place-items: center;
+  text-align: center;
+}
+
+.errorPage header h1 {
+  font-size: 4em;
+}

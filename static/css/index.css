@@ -1,0 +1,80 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700;800;900&display=swap');
+
+:root {
+  --colorPrimary: #27272f;
+  --colorAccent: #ec904c;
+  --colorSoftWhite: #f5f5f5;
+  --textCol: #f5f5f5;
+  --textColLabel: #908e9b;
+  --textColPrim: #e1dfe9;
+  --sizeSm1: 0.25rem;
+  --sizeSm2: 0.375rem;
+  --sizeSm3: 0.5rem;
+  --sizeSm4: 0.75rem;
+  --sizeMd1: 1rem;
+  --sizeMd2: 1.25rem;
+  --sizeMd3: 1.5rem;
+  --sizeLg1: 2rem;
+  --sizeLg2: 3rem;
+  --sizeLg3: 4rem;
+  --fontsize: 16px;
+}
+
+@import 'utils/header/home.css';
+@import 'utils/header/detail.css';
+@import 'utils/header/profile.css';
+@import 'utils/header/error.css';
+@import 'utils/main/home.css';
+@import 'utils/main/detail.css';
+@import 'utils/main/profile.css';
+@import 'utils/footer.css';
+
+* {
+  box-sizing: border-box;
+  scroll-behavior: smooth;
+  margin: 0;
+  padding: 0;
+  font-family: 'Inter', sans-serif;
+  line-height: 1;
+}
+
+html {
+  background: var(--colorSoftWhite);
+  color: var(--colorPrimary);
+  font-size: var(--fontsize);
+}
+
+body {
+  min-height: 100vh;
+}
+
+body header {
+  margin-bottom: 1em;
+}
+
+body footer {
+  position: fixed;
+  bottom: 1.1rem;
+  right: 1.1rem;
+  width: 3rem;
+  height: 3rem;
+  background-color: var(--colorSoftWhite);
+  border-radius: 50%;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+  transition: 0.3s;
+}
+
+body footer:hover {
+  transform: scale(1.25);
+}
+
+body footer a:before {
+  content: '\f406';
+  font-family: FontAwesome;
+  font-size: 1.5rem;
+  color: var(--colorPrimary);
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translateX(-50%) translateY(-50%);
+}

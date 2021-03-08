@@ -88,6 +88,8 @@ image = {
 
 ## 🔍 **Sources**
 
+- npm: express-handlebars. (2021, February 16). Npm. https://www.npmjs.com/package/express-handlebars
+
 ---
 
 ## 🔐 **License**
