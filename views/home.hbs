@@ -1,0 +1,20 @@
+
+
+<body class="homePage">
+  
+  {{> components/searchHeader}}
+
+  <main>
+    {{#each data }}
+        {{!-- {{listen this.urls.full}} --}}
+        <a href="/detail/{{this.id}}">
+          <img src="{{this.urls.full}}" alt="">
+        </a>
+    {{/each}}
+  </main>
+
+  <footer>
+    <a href="/profile"></a>
+  </footer>
+
+</body>

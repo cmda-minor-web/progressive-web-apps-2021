@@ -2,6 +2,13 @@
 
 ## 🔦 **Description**
 
+In this course we will convert the client side web application previously made Web App From Scratch into a server side rendered application. We also add functionalities based on the Service Worker and turn the application into a Progressive Web App. Ultimately we are going to implement a series of optimisations to improve the performance of the application.
+
+Learning goals
+You understand the difference between client side and server side rendering and you can apply server side rendering in your application
+You understand how a Service Worker works and you can implement it in your application.
+You understand how the critical render path works and how you can optimize it for a better runtime and / or perceived performance.
+
 ---
 
 ## 🌐 **Live link**

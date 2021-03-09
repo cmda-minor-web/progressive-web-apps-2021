@@ -73,7 +73,7 @@
   border: 1.5px solid var(--colorAccent);
 }
 
-.homePage header article button {
+.homePage header article input[type='submit'] {
   position: absolute;
   top: 0;
   right: 0;
@@ -85,14 +85,14 @@
   border: none;
 }
 
-.homePage header article button::before {
+.homePage header article input[type='submit']::before {
   content: '\f002';
   font-family: 'FontAwesome';
   font-size: var(--h2);
   padding: 1em 0.7em;
 }
 
-.homePage header article button:focus {
+.homePage header article input[type='submit']:focus {
   border-radius: 50%;
   outline: none;
   border: 1.5px solid var(--colorAccent);
