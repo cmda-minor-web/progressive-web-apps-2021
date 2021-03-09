@@ -1,79 +1,21 @@
 <body class="editorPage">
-  <header class="header">
-    <a href="/">
-      <h1>PhotoPaint</h1>
-    </a>
-
-    <form action="/" method="POST">
-      <input type="text" id="searchElement" name="searchQuery" placeholder="Search free photos">
-      <input value="&#xf002;" type="submit">
-    </form>
-
-    <nav>
-      <ul>
-        <li><a href="/profile"></a></li>
-        {{!-- <li><a href="/profile">profile</a></li> --}}
-      </ul>
-    </nav>
-  </header>
-
-  {{!-- <header>
-    <a href="/">Back</a>
-    <article>
-      <div id="imgInfo">
-        <article id="imageInfo"></article>
-      </div>
-      <div id="fileInfo">
-        <article id="fileInfo">
-          <button>Download Image</button>
-          <button>Save to profile</button>
-        </article>
-
-      </div>
-    </article>
-  </header> --}}
+  {{>components/header}}
 
   <main>
     <section>
-      <article>
-        <img src="{{data.user.profile_image.small}}" alt="Photo of {{data.user.name}}">
-        <div>
-          <h3>{{data.user.name}}</h3>
-          <h4>{{data.user.total_photos}} Photos</h4>
-        </div>
-      </article>
-      
-      <article>
-        <button>Edit</button>
-        <button>Download</button>
-        <button>Save</button>
-      </article>
+      {{>components/editor/user}}
     </section>
 
     <section>
-      <img src="{{data.urls.full}}" alt="">
+      {{>components/editor/img}}
     </section>
 
     <section>
-      <article>
-        <ul>
-          <li>{{data.views}} views</li>
-          <li>{{data.downloads}} downloads</li>
-          <li>{{data.likes}} likes</li>
-        </ul>
-      </article>
+      {{>components/editor/stats}}
     </section>
 
     <section>
-      <h2>Also popular:</h2>
-      <article>
-        {{#each recommended }}
-            <a href="/{{this.id}}">
-            {{listen this.urls}}
-              <img src="{{this.urls.small}}" alt="">
-            </a>
-        {{/each}}
-      </article>
+      {{>components/editor/recommended}}
     </section>
     
   </main>

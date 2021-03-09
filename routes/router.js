@@ -35,6 +35,10 @@ const homePost = async (req, res) => {
     let response = await fetcher(endpoint)
     res.render('home', {
       data: response.results,
+      searchQuery: {
+        hasQuery: true,
+        query: query,
+      },
       style: 'home.css',
       PageTitle: 'PhotoPaint',
     })
@@ -47,7 +51,7 @@ const detail = async (req, res) => {
   try {
     let item = req._parsedUrl.path
     let endpointOne = `https://api.unsplash.com/photos/${item}?client_id=${API_KEY}`
-    let endpointTwo = `https://api.unsplash.com/photos/?client_id=${API_KEY}&per_page=10&order_by=popular`
+    let endpointTwo = `https://api.unsplash.com/photos/?client_id=${API_KEY}&per_page=11&order_by=downloads`
 
     let response = await fetcher(endpointOne)
     let recommendedResponse = await fetcher(endpointTwo)
