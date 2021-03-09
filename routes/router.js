@@ -10,11 +10,12 @@ const urlencodedParser = bodyParser.urlencoded({ extended: true })
 const home = async (req, res) => {
   try {
     let endpoint = `https://api.unsplash.com/photos/?client_id=${API_KEY}&per_page=33&order_by=popular`
-    let data = await fetcher(endpoint)
+    let response = await fetcher(endpoint)
 
     res.render('home', {
-      data: data,
+      data: response,
       styles: 'home.css',
+      PageTitle: 'PhotoPaint',
     })
   } catch (err) {
     console.log(err)
@@ -23,19 +24,18 @@ const home = async (req, res) => {
 
 const homePost = async (req, res) => {
   try {
-    // console.log('submitted')
-    console.log(req.body.searchQuery)
     let query = req.body.searchQuery
-    let endpoint = `https://api.unsplash.com/search/photos/?client_id=${API_KEY}&query=${query}&per_page=33&order_by=popular`
-    // let data = await fetcher(endpoint)
-
-    // let endpoint = `https://api.unsplash.com/photos/?client_id=${API_KEY}&per_page=33`
-    let data = await fetcher(endpoint)
-
-    console.log(data)
+    let endpoint
+    if (query === '') {
+      return (endpoint = `https://api.unsplash.com/photos/?client_id=${API_KEY}&per_page=33&order_by=popular`)
+    } else {
+      endpoint = `https://api.unsplash.com/search/photos/?client_id=${API_KEY}&query=${query}&per_page=33&order_by=popular`
+    }
+    let response = await fetcher(endpoint)
     res.render('home', {
-      data: data.results,
+      data: response.results,
       styles: 'home.css',
+      PageTitle: 'PhotoPaint',
     })
   } catch (err) {
     console.log(err)
@@ -47,10 +47,13 @@ const detail = async (req, res) => {
     let pathID = req._parsedUrl.path
     let item = pathID.replace('/detail/', '')
     let endpoint = `https://api.unsplash.com/photos/${item}?client_id=${API_KEY}`
-    let data = await fetcher(endpoint)
-    // console.log(data)
+    let response = await fetcher(endpoint)
 
-    res.render('detail', { data: data, styles: 'detail.css' })
+    res.render('details', {
+      data: response,
+      styles: 'editor.css',
+      PageTitle: 'Editor | PhotoPaint',
+    })
   } catch (err) {
     console.log(err)
   }
@@ -58,7 +61,10 @@ const detail = async (req, res) => {
 
 const error = async (req, res) => {
   try {
-    res.render('404', { madeBy: 'jor', styles: 'error.css' })
+    res.render('404', {
+      styles: 'error.css',
+      PageTitle: 'Page Not Found | PhotoPaint',
+    })
   } catch (err) {
     console.log(err)
   }
