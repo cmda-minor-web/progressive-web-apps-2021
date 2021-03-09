@@ -2,6 +2,7 @@ const express = require('express')
 const path = require('path')
 const router = require('./routes/router')
 const exphbs = require('express-handlebars')
+require('dotenv').config()
 
 const app = express()
 const port = 8080

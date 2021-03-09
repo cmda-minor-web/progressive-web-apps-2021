@@ -1,9 +1,10 @@
 const express = require('express')
 const bodyParser = require('body-parser')
-const { fetcher } = require('../utils/fetch')
+const { fetcher } = require('../utils/data/fetch')
+require('dotenv').config()
 
 const router = express.Router()
-const API_KEY = '4ftBvwb6tBA2A3rXw88yOTkwD9RlZSQOyZHDAdstiuE'
+const API_KEY = process.env.API_KEY
 const jsonParser = bodyParser.json()
 const urlencodedParser = bodyParser.urlencoded({ extended: true })
 
@@ -14,7 +15,7 @@ const home = async (req, res) => {
 
     res.render('home', {
       data: response,
-      styles: 'home.css',
+      style: 'home.css',
       PageTitle: 'PhotoPaint',
     })
   } catch (err) {
@@ -34,7 +35,7 @@ const homePost = async (req, res) => {
     let response = await fetcher(endpoint)
     res.render('home', {
       data: response.results,
-      styles: 'home.css',
+      style: 'home.css',
       PageTitle: 'PhotoPaint',
     })
   } catch (err) {
@@ -44,15 +45,31 @@ const homePost = async (req, res) => {
 
 const detail = async (req, res) => {
   try {
-    let pathID = req._parsedUrl.path
-    let item = pathID.replace('/detail/', '')
-    let endpoint = `https://api.unsplash.com/photos/${item}?client_id=${API_KEY}`
-    let response = await fetcher(endpoint)
+    let item = req._parsedUrl.path
+    let endpointOne = `https://api.unsplash.com/photos/${item}?client_id=${API_KEY}`
+    let endpointTwo = `https://api.unsplash.com/photos/?client_id=${API_KEY}&per_page=10&order_by=popular`
+
+    let response = await fetcher(endpointOne)
+    let recommendedResponse = await fetcher(endpointTwo)
+
+    console.log(response)
 
     res.render('details', {
       data: response,
-      styles: 'editor.css',
+      recommended: recommendedResponse,
+      style: 'editor.css',
       PageTitle: 'Editor | PhotoPaint',
+    })
+  } catch (err) {
+    console.log(err)
+  }
+}
+
+const profile = async (req, res) => {
+  try {
+    res.render('home', {
+      style: 'profile.css',
+      PageTitle: 'Profile | PhotoPaint',
     })
   } catch (err) {
     console.log(err)
@@ -61,8 +78,8 @@ const detail = async (req, res) => {
 
 const error = async (req, res) => {
   try {
-    res.render('404', {
-      styles: 'error.css',
+    res.render('error', {
+      style: 'error.css',
       PageTitle: 'Page Not Found | PhotoPaint',
     })
   } catch (err) {
@@ -72,7 +89,8 @@ const error = async (req, res) => {
 
 router.get('/', home)
 router.post('/', urlencodedParser, homePost)
-router.get('/detail/:id', detail)
+router.get('/:id', detail)
+router.get('/profile', profile)
 router.get('/*', error)
 
 module.exports = router

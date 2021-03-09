@@ -1,5 +1,23 @@
 <body class="editorPage">
-  <header>
+  <header class="header">
+    <a href="/">
+      <h1>PhotoPaint</h1>
+    </a>
+
+    <form action="/" method="POST">
+      <input type="text" id="searchElement" name="searchQuery" placeholder="Search free photos">
+      <input value="&#xf002;" type="submit">
+    </form>
+
+    <nav>
+      <ul>
+        <li><a href="/profile"></a></li>
+        {{!-- <li><a href="/profile">profile</a></li> --}}
+      </ul>
+    </nav>
+  </header>
+
+  {{!-- <header>
     <a href="/">Back</a>
     <article>
       <div id="imgInfo">
@@ -13,10 +31,50 @@
 
       </div>
     </article>
-  </header>
+  </header> --}}
 
   <main>
-    <img src="{{data.urls.full}}" alt="">
+    <section>
+      <article>
+        <img src="{{data.user.profile_image.small}}" alt="Photo of {{data.user.name}}">
+        <div>
+          <h3>{{data.user.name}}</h3>
+          <h4>{{data.user.total_photos}} Photos</h4>
+        </div>
+      </article>
+      
+      <article>
+        <button>Edit</button>
+        <button>Download</button>
+        <button>Save</button>
+      </article>
+    </section>
+
+    <section>
+      <img src="{{data.urls.full}}" alt="">
+    </section>
+
+    <section>
+      <article>
+        <ul>
+          <li>{{data.views}} views</li>
+          <li>{{data.downloads}} downloads</li>
+          <li>{{data.likes}} likes</li>
+        </ul>
+      </article>
+    </section>
+
+    <section>
+      <h2>Also popular:</h2>
+      <article>
+        {{#each recommended }}
+            <a href="/{{this.id}}">
+            {{listen this.urls}}
+              <img src="{{this.urls.small}}" alt="">
+            </a>
+        {{/each}}
+      </article>
+    </section>
     
   </main>
 </body>

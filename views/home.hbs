@@ -1,18 +1,13 @@
 <body class="homePage">
   
-  {{> components/searchHeader}}
+  <header>
+    {{> components/home/navBar}}
+
+    {{> components/home/searchBar}}
+  </header>
 
   <main>
-    {{#each data }}
-        {{!-- {{listen this.urls.full}} --}}
-        <a href="/detail/{{this.id}}">
-          <img src="{{this.urls.full}}" alt="">
-        </a>
-    {{/each}}
+    {{>components/home/imageResult}}
   </main>
-
-  <footer>
-    <a href="/profile"></a>
-  </footer>
 
 </body>
