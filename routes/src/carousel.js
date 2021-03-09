@@ -5,7 +5,19 @@ const axios = require('axios');
 
 router.get('/artist/:name', (req, res) => {
   const name = req.params.name;
-  console.log(name);
+
+  if (typeof localStorage === "undefined" || localStorage === null) {
+    var LocalStorage = require('node-localstorage').LocalStorage;
+    localStorage = new LocalStorage('./scratch');
+  }
+
+  
+  if (localStorage.getItem(name)) {
+    return res.render('carousel.ejs', {
+        data: JSON.parse(localStorage.getItem(name))
+    })
+  }
+
   const options = {
     method: 'GET',
     url: `https://deezerdevs-deezer.p.rapidapi.com/search?q=${name}`,
@@ -20,6 +32,7 @@ router.get('/artist/:name', (req, res) => {
     res.render('carousel.ejs', {
       data: response.data.data,
     });
+    localStorage.setItem(name, JSON.stringify(response.data.data));
   }).catch(function(error) {
     console.error(error);
   });

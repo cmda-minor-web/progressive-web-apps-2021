@@ -10,15 +10,15 @@
     <div class="container margin">
         <% data.forEach(function(data) { %>
             <article class="container">
-                <a href="/artist/<%= data.artist.name %>">
+                <a href="/artist/<%= data.name %>#overview">
                     <div class="box">
                         <div class="imgBx">
-                            <img src="<%= data.artist.picture_medium %>">
+                            <img src="<%= data.picture_medium %>">
                         </div>
                         <div class="content">
                             <div>
                                 <h2>
-                                    <%= data.artist.name %>
+                                    <%= data.name %>
                                 </h2>
                                 <p>
                                     <%= data.type %>
