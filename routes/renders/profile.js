@@ -1,3 +1,5 @@
+require('dotenv').config()
+
 const profile = async (req, res) => {
   try {
     res.render('home', {
@@ -8,3 +10,5 @@ const profile = async (req, res) => {
     console.log(err)
   }
 }
+
+module.exports = { profile }

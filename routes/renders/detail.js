@@ -1,3 +1,7 @@
+const { fetcher } = require('../../utils/fetch')
+require('dotenv').config()
+const API_KEY = process.env.API_KEY
+
 const detail = async (req, res) => {
   try {
     let item = req._parsedUrl.path
@@ -6,8 +10,6 @@ const detail = async (req, res) => {
 
     let response = await fetcher(endpointOne)
     let recommendedResponse = await fetcher(endpointTwo)
-
-    console.log(response)
 
     res.render('details', {
       data: response,
@@ -19,3 +21,5 @@ const detail = async (req, res) => {
     console.log(err)
   }
 }
+
+module.exports = { detail }

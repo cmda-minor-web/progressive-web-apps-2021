@@ -1,3 +1,7 @@
+const { fetcher } = require('../../utils/fetch')
+require('dotenv').config()
+const API_KEY = process.env.API_KEY
+
 const homePost = async (req, res) => {
   try {
     let query = req.body.searchQuery
@@ -10,6 +14,10 @@ const homePost = async (req, res) => {
     let response = await fetcher(endpoint)
     res.render('home', {
       data: response.results,
+      searchQuery: {
+        hasQuery: true,
+        query: query,
+      },
       style: 'home.css',
       PageTitle: 'PhotoPaint',
     })
@@ -17,3 +25,5 @@ const homePost = async (req, res) => {
     console.log(err)
   }
 }
+
+module.exports = { homePost }

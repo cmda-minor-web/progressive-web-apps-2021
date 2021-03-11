@@ -1,5 +1,5 @@
 const fetch = require('node-fetch')
-const { filterData } = require('./filters')
+// const { filterData } = require('./filters')
 
 const fetcher = async (endpoint) => {
   const data = await fetch(endpoint)

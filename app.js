@@ -1,6 +1,7 @@
 const express = require('express')
 const path = require('path')
 const router = require('./routes/router')
+
 const exphbs = require('express-handlebars')
 require('dotenv').config()
 
@@ -11,9 +12,8 @@ const hbs = exphbs.create({
   layoutsDir: path.join(__dirname, 'views/layouts'),
   partialsDir: 'views/partials',
   extname: '.hbs',
-
   helpers: {
-    listen: function (input) {
+    listen: (input) => {
       return console.log(input)
     },
   },
@@ -25,5 +25,6 @@ app.use(express.static('static'))
 app.use('/', router)
 
 app.listen(port, function () {
+  console.log(`App can be opened on http://localhost:${port}`)
   console.log(`App is listening on ${port}!`)
 })
