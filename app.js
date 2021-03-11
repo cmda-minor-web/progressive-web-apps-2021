@@ -6,7 +6,7 @@ const exphbs = require('express-handlebars')
 require('dotenv').config()
 
 const app = express()
-const port = 8080
+const port = process.env.PORT || 8080
 const hbs = exphbs.create({
   defaultLayout: 'main',
   layoutsDir: path.join(__dirname, 'views/layouts'),
