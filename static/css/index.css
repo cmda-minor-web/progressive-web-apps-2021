@@ -96,6 +96,9 @@ input[type='submit'] {
     0 6px 20px 0 rgba(255, 255, 255, 0.09);
 }
 
+.header div {
+  display: flex;
+}
 .header a {
   color: var(--uiWhite);
   text-decoration: none;
@@ -172,4 +175,17 @@ input[type='submit'] {
   padding: 0.5rem;
   background-color: var(--uiBlue);
   border-radius: 50%;
+}
+
+@media (min-width: 1300px) {
+  .header div {
+    width: 1100px;
+    margin: 0 auto;
+  }
+  .header div form input[type='text'] {
+    width: 300px;
+  }
+  .header div form input[type='text']:focus {
+    width: 450px;
+  }
 }
