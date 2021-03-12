@@ -97,6 +97,7 @@ input[type='submit'] {
 }
 
 .header div {
+  width: 100%;
   display: flex;
 }
 .header a {
