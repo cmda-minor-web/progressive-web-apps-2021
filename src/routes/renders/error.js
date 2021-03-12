@@ -1,3 +1,4 @@
+// Error route function
 const error = async (req, res) => {
   try {
     res.render('error', {
@@ -10,4 +11,5 @@ const error = async (req, res) => {
   }
 }
 
+// Export route
 module.exports = { error }

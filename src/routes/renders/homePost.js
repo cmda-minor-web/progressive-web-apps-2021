@@ -1,6 +1,8 @@
+// Import packages and functions
 const { fetcher } = require('../../utils/fetch')
 require('dotenv').config()
 
+// Home post method route function
 const homePost = async (req, res) => {
   try {
     const API_KEY = process.env.API_KEY
@@ -31,4 +33,5 @@ const homePost = async (req, res) => {
   }
 }
 
+// Export route
 module.exports = { homePost }

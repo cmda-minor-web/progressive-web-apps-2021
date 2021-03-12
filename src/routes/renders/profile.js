@@ -1,5 +1,4 @@
-require('dotenv').config()
-
+// Profile route function
 const profile = async (req, res) => {
   try {
     res.render('profile', {
@@ -12,4 +11,5 @@ const profile = async (req, res) => {
   }
 }
 
+// Export route
 module.exports = { profile }
