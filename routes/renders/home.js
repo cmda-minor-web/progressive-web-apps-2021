@@ -1,11 +1,12 @@
 const { fetcher } = require('../../utils/fetch')
 require('dotenv').config()
-const API_KEY = process.env.API_KEY
 
 const home = async (req, res) => {
   try {
-    let endpoint = `https://api.unsplash.com/photos/?client_id=${API_KEY}&per_page=33&order_by=popular`
-    let response = await fetcher(endpoint)
+    const API_KEY = process.env.API_KEY
+
+    const endpoint = `https://api.unsplash.com/photos/?client_id=${API_KEY}&per_page=33&order_by=popular`
+    const response = await fetcher(endpoint)
 
     res.render('home', {
       data: response,

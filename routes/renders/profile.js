@@ -2,7 +2,7 @@ require('dotenv').config()
 
 const profile = async (req, res) => {
   try {
-    res.render('home', {
+    res.render('profile', {
       style: 'profile.css',
       PageTitle: 'Profile | PhotoPaint',
     })

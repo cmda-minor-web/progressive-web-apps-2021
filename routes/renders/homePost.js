@@ -1,10 +1,11 @@
 const { fetcher } = require('../../utils/fetch')
 require('dotenv').config()
-const API_KEY = process.env.API_KEY
 
 const homePost = async (req, res) => {
   try {
-    let query = req.body.searchQuery
+    const API_KEY = process.env.API_KEY
+
+    const query = req.body.searchQuery
     let endpoint
 
     if (query === '') {
