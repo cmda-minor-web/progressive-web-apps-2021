@@ -10,7 +10,8 @@ const home = async (req, res) => {
 
     res.render('home', {
       data: response,
-      style: 'home.css',
+      style: 'css/index.css',
+      stylePage: 'css/pages/home.css',
       PageTitle: 'PhotoPaint',
     })
   } catch (err) {

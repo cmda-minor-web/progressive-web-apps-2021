@@ -22,7 +22,8 @@ const homePost = async (req, res) => {
         hasQuery: true,
         query: query,
       },
-      style: 'home.css',
+      style: 'css/index.css',
+      stylePage: 'css/pages/home.css',
       PageTitle: 'PhotoPaint',
     })
   } catch (err) {

@@ -11,7 +11,7 @@ const { error } = require('./renders/error')
 
 router.get('/', home)
 router.post('/', urlencodedParser, homePost)
-router.get('/:id', detail)
+router.get('/image/:id', detail)
 router.get('/profile', profile)
 router.get('/*', error)
 
