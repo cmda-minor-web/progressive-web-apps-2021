@@ -1,0 +1,115 @@
+* {
+    box-sizing: border-box
+  }
+  
+  html {
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    font-family: 'Dosis', sans-serif;
+    line-height: 1.6;
+    color: #666;
+    background: #F6F6F6;
+  }
+  
+  #root {
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+  
+  h1 {
+    text-align: center;
+    padding: 1.5rem 2.5rem;
+    background-image: linear-gradient(120deg, #fbc2eb 0%, #a6c1ee 100%);
+    margin: 0 0 0rem 0;
+    font-size: 1.5rem;
+    color: white;
+    overflow: hidden;
+    margin: 0%;
+  }
+  
+  img {
+    display: block;
+    margin: 3rem auto;
+    max-width: 50%;
+  }
+  
+  p {
+    padding: 0 2.5rem 2.5rem;
+    margin: 0;
+  }
+  
+  .card {
+    margin: 1rem 1rem;
+     box-shadow: 2px 4px 25px rgba(0, 0, 0, .1);
+    border-radius: 12px;
+    overflow: hidden;
+    transition: all .2s linear;
+  }
+  
+  .card:hover {
+    box-shadow: 2px 8px 45px rgba(0, 0, 0, .15);
+    transform: translate3D(0, -2px, 0);
+  }
+  
+  @media screen and (min-width: 600px) {
+    .card {
+      flex: 1 1 calc(50% - 2rem);
+    }
+  }
+  
+  @media screen and (min-width: 900px) {
+    .card {
+      flex: 1 1 calc(33% - 2rem);
+    }
+  }
+  
+  a:nth-child(2n) h1 {
+    background-image: linear-gradient(120deg, #84fab0 0%, #8fd3f4 100%);
+  }
+  
+  a:nth-child(4n) h1 {
+    background-image: linear-gradient(120deg, #ff9a9e 0%, #fecfef 100%);
+  }
+  
+  a:nth-child(5n) h1 {
+    background-image: linear-gradient(120deg, #ffc3a0 0%, #ffafbd 100%);
+  }
+
+  a {
+    text-decoration: none;
+  }
+
+#feedback {
+    background: white;
+    box-shadow: 2px 4px 25px rgba(0, 0, 0, .1);
+    border-radius: 12px;
+    transition: all .2s linear;
+    text-align: center;
+    padding: 1.5rem 2.5rem;
+    background-image: linear-gradient(120deg, #fbc2eb 0%, #a6c1ee 100%);
+    font-size: 1.5rem;
+    color: white;
+    margin: .1rem 3rem;
+  }
+  
+  #feedback:hover {
+    box-shadow: 2px 8px 45px rgba(0, 0, 0, .15);
+    transform: translate3D(0, -2px, 0);
+  }
+
+  .hidden {
+    display: none;
+  }
+
+  h2 {
+    font-family: 'Big Shoulders Display', cursive;
+    font-size: 3.5em;
+    text-transform: uppercase;
+    text-align: center;
+  }
+
+  p {
+    font-family: nunito;
+    font-size: 1.5em;
+    text-align: center;
+  }

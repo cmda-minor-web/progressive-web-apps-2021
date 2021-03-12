@@ -1,0 +1,21 @@
+{
+  "name": "pwa_npeeters",
+  "version": "1.0.0",
+  "description": "-",
+  "main": "index.js",
+  "scripts": {
+    "start": "node index.js",
+    "run": "nodemon index.js"
+  },
+  "author": "Niels Peeters",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/NielsPeeters96/PWA_NPeeters/issues"
+  },
+  "dependencies": {
+    "ejs": "^3.1.6",
+    "express": "^4.17.1",
+    "node-fetch": "^2.6.1",
+    "request": "^2.88.2"
+  }
+}
