@@ -244,9 +244,11 @@
   min-width: 200px;
   min-height: 200px;
   background-color: hotpink;
-  opacity: 0;
+  display: none;
+  /* opacity: 0; */
 }
 
 #filterElem.active {
   opacity: 1;
+  display: block;
 }

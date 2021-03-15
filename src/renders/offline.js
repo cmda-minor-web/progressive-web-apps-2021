@@ -5,7 +5,7 @@ const offline = async (req, res) => {
       pageInfo: {
         style: {
           globalStyle: '../css/index.css',
-          pageStyle: '../css/pages/error.css',
+          pageStyle: '../css/pages/home.css',
         },
         scripts: {
           script: '/js/script.js',

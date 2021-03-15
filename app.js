@@ -24,7 +24,7 @@ app
   .set('view engine', '.hbs')
   .set('views', templates)
   .use(express.static('public'))
-  .use('/', router)
+  .use(router)
 
 // Launch application
 app.listen(port, function () {

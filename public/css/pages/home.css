@@ -75,7 +75,7 @@
   margin: 0 auto;
 }
 .homePage header article:nth-of-type(2) form div {
-  width: 80%;
+  width: 95%;
   margin: 0 auto;
   position: relative;
 }
@@ -184,6 +184,11 @@
             Media Queries
 **************************************/
 
+@media screen and (min-width: 500px) {
+  .homePage .header article:nth-of-type(2) form div {
+    width: 80%;
+  }
+}
 @media screen and (min-width: 700px) {
   .homePage {
     padding: 1em 2em;

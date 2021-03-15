@@ -7,8 +7,7 @@ const cacheFiles = [
 ] // Files to save in cached memory
 
 self.addEventListener('install', (event) => {
-  console.log('[SW] Installed')
-
+  // console.log('[SW] Installed')
   self.skipWaiting()
 
   event.waitUntil(
@@ -20,14 +19,14 @@ self.addEventListener('install', (event) => {
 })
 
 self.addEventListener('activate', (event) => {
-  console.log('[SW] Activated')
+  // console.log('[SW] Activated')
 
   event.waitUntil(
     caches.keys().then((cacheNames) => {
       return Promise.all(
         cacheNames.map((thisCache) => {
           if (thisCache.includes('precache') && thisCache !== cacheName) {
-            console.log('[SW] Deleted cached files from cache - ', thisCache)
+            // console.log('[SW] Deleted cached files from cache - ', thisCache)
             return caches.delete(thisCache)
           }
         })
@@ -37,26 +36,13 @@ self.addEventListener('activate', (event) => {
 })
 
 self.addEventListener('fetch', (event) => {
-  console.log('[SW] Fetch event for ', event.request.url)
+  // console.log('[SW] Fetch event for ', event.request.url)
 
   event.respondWith(
     fetch(event.request).catch(() => {
       return caches.open(cacheName).then((cache) => cache.match('/offline/'))
     })
   )
-
-  // event.respondWith(
-  //   caches.match(event.request).then((cachedResponse) => {
-  //     if (cachedResponse) {
-  //       console.log('Found in cache!')
-  //       console.log(cachedResponse)
-  //       return cachedResponse
-  //     } else {
-  //       return fetch(event.request)
-  //     }
-  //   })
-  // )
-  // e.respondWith(fetch(e.request))
 })
 
 // let cacheName = 'v3'
