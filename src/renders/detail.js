@@ -20,6 +20,7 @@ const detail = async (req, res) => {
       data: response,
       recommended: recommendedResponse,
       pageInfo: {
+        manifest: '../manifest.json',
         style: {
           globalStyle: '../css/index.css',
           pageStyle: '../css/pages/editor.css',

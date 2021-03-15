@@ -3,6 +3,7 @@ const error = async (req, res) => {
   try {
     res.render('error', {
       pageInfo: {
+        manifest: '../manifest.json',
         style: {
           globalStyle: '../css/index.css',
           pageStyle: '../css/pages/error.css',
