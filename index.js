@@ -24,7 +24,12 @@ app.get('/', async (req, res) => {
 });
 
 app.get('id', function (req, res) {
-  res.render('detailpage.ejs');
+  fetch(endpointOne)
+  .then(show => show.json)
+  .then (dataDetailpage => {
+    const detailpage = dataDetailpage
+    res.render('detailpage.ejs', {detailpage});
+  })
 });
 
 app.listen(port, () => console.log(`App is running on port ${port}`));

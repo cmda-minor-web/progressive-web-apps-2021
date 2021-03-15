@@ -1,6 +1,10 @@
-    <%- include('./partials/head'); %>
-
-  <body>
-    <h2>Detailpage</h2>
-  </body>
+<%- include('./partials/head'); %>
+<body>
+    <% movies.forEach(movie.id => { %>
+        <div class="card">
+            <h1><%= movie.description %></h1>
+        </div>    
+        </a>
+    <% }) %>
+</body>
 </html>
