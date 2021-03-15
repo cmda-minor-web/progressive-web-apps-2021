@@ -1,5 +1,5 @@
 // Import packages and functions
-const { fetcher } = require('../../utils/fetch')
+const { fetcher } = require('./../utils/data/fetch')
 require('dotenv').config()
 
 // Home post method route function
@@ -24,9 +24,16 @@ const homePost = async (req, res) => {
         hasQuery: true,
         query: query,
       },
-      style: 'css/index.css',
-      stylePage: 'css/pages/home.css',
-      PageTitle: 'PhotoPaint',
+      pageInfo: {
+        style: {
+          globalStyle: 'css/index.css',
+          pageStyle: 'css/pages/home.css',
+        },
+        scripts: {
+          script: '/js/script.js',
+        },
+        PageTitle: 'PhotoPaint',
+      },
     })
   } catch (err) {
     console.log(err)

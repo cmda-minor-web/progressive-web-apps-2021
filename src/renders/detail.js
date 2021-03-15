@@ -1,5 +1,5 @@
 // Import packages and functions
-const { fetcher } = require('../../utils/fetch')
+const { fetcher } = require('./../utils/data/fetch')
 require('dotenv').config()
 
 // Detail route function
@@ -19,9 +19,16 @@ const detail = async (req, res) => {
     res.render('details', {
       data: response,
       recommended: recommendedResponse,
-      style: '../css/index.css',
-      stylePage: '../css/pages/editor.css',
-      PageTitle: 'Editor | PhotoPaint',
+      pageInfo: {
+        style: {
+          globalStyle: '../css/index.css',
+          pageStyle: '../css/pages/editor.css',
+        },
+        scripts: {
+          script: '/js/script.js',
+        },
+        PageTitle: 'Editor | PhotoPaint',
+      },
     })
   } catch (err) {
     console.log(err)

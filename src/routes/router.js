@@ -5,11 +5,11 @@ const bodyParser = require('body-parser')
 const urlencodedParser = bodyParser.urlencoded({ extended: true })
 
 // Import routes
-const { home } = require('./renders/home')
-const { homePost } = require('./renders/homePost')
-const { detail } = require('./renders/detail')
-const { profile } = require('./renders/profile')
-const { error } = require('./renders/error')
+const { home } = require('./../renders/home')
+const { homePost } = require('./../renders/homePost')
+const { detail } = require('./../renders/detail')
+const { profile } = require('./../renders/profile')
+const { error } = require('./../renders/error')
 
 // Setting routes
 router.get('/', home)
