@@ -1,0 +1,14 @@
+<article>
+  <form action="/" method="POST">
+    <div>
+      <input type="text" id="searchElement" name="searchQuery" placeholder="Search free photos">
+      <input value="&#xf002;" type="submit">
+    </div>
+    {{!-- <input type="text" id="searchElement" name="searchQuery" placeholder="Search free photos">
+    <button type="submit" type="submit" > </button> --}}
+  </form>
+
+  {{#if searchQuery.hasQuery}}
+    <h1>{{searchQuery.query}} </h1>
+  {{/if}}
+</article>

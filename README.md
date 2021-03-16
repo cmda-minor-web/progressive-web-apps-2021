@@ -1,4 +1,4 @@
-# Web App From Scratch
+# Progressive Web App
 
 ## 🔦 **Description**
 
@@ -12,6 +12,8 @@ You understand how the critical render path works and how you can optimize it fo
 ---
 
 ## 🌐 **Live link**
+
+Visit: [PhotoPaint.app](https://photopaint.herokuapp.com/)
 
 ---
 
@@ -96,6 +98,10 @@ image = {
 ## 🔍 **Sources**
 
 - npm: express-handlebars. (2021, February 16). Npm. https://www.npmjs.com/package/express-handlebars
+
+To make APA:
+
+- https://koderplace.com/code-samples/255/how-to-change-the-location-of-views-in-express-handlebars
 
 ---
 
