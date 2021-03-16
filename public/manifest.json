@@ -9,17 +9,17 @@
     "icons": [
       {
         "src": "/img/Movie1.jpg",
-        "sizes": "960x480",
+        "sizes": "480x480",
         "type": "image/jpg"
       },
       {
         "src": "/img/Movie2.jpg",
-        "sizes": "1200x675",
+        "sizes": "600x600",
         "type": "image/jpg"
       },
       {
         "src": "/img/Movie3.jpg",
-        "sizes": "2000x1125",
+        "sizes": "800x800",
         "type": "image/jpg"
       }
     ]
