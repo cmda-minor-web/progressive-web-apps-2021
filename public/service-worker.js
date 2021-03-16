@@ -1,10 +1,11 @@
-const cacheName = 'Cache'
+const cacheName = 'myCache'
 const cacheFiles = [
+  // Files to save in cached memory
   './css/index.css',
   './script.js',
   '/offline/',
   'https://fonts.googleapis.com/css2?family=Inter:wght@300;500;700;900&display=swap',
-] // Files to save in cached memory
+]
 
 self.addEventListener('install', (event) => {
   // console.log('[SW] Installed')
@@ -20,162 +21,69 @@ self.addEventListener('install', (event) => {
 
 self.addEventListener('activate', (event) => {
   // console.log('[SW] Activated')
-
   event.waitUntil(
-    caches.keys().then((cacheNames) => {
+    caches.keys().then((keyList) => {
       return Promise.all(
-        cacheNames.map((thisCache) => {
-          if (thisCache.includes('precache') && thisCache !== cacheName) {
-            // console.log('[SW] Deleted cached files from cache - ', thisCache)
+        keyList.map((thisCache) => {
+          if (thisCache.includes('myCache') && thisCache !== cacheName) {
             return caches.delete(thisCache)
           }
         })
       )
-    }) // end caches.keys()
-  ) // end e.waitUntil
-})
-
-self.addEventListener('fetch', (event) => {
-  // console.log('[SW] Fetch event for ', event.request.url)
-
-  event.respondWith(
-    fetch(event.request).catch(() => {
-      return caches.open(cacheName).then((cache) => cache.match('/offline/'))
     })
   )
 })
 
-// let cacheName = 'v3'
-// let cacheFiles = [
-//   './css/index.css',
-//   './script.js',
-//   '/offline/',
-//   'https://fonts.googleapis.com/css2?family=Inter:wght@300;500;700;900&display=swap',
-// ]
+self.addEventListener('fetch', (event) => {
+  // console.log(`[SW] Fetch: ${event.request.url}`)
 
-// self.addEventListener('install', (event) => {
-//   console.log('[ServiceWorker] Installing')
+  let getMethod = event.request.method === 'GET'
+  let path = cacheFiles.includes(getPathName(event.request.url))
 
-//   // event.waitUntil(
-//   //   caches.open(cacheName).then((cache) => {
-//   //     console.log('[ServiceWorker] caching cacheFiles')
-//   //     return cache.addAll(cacheFiles).then(() => self.skipWaiting())
-//   //   })
-//   // )
-//   event.waitUntil(
-//     caches.open(cacheName).then((cache) => {
-//       console.log('[ServiceWorker] Precaching files')
-//       return cache.addAll(cacheFiles)
-//     }) // end caches.open()
-//   ) // end e.waitUntil
-// })
+  if (getMethod && path) {
+    console.log(`core get request: ${event.request.url}`)
+    event.respondWith(
+      caches.open(cacheName).then((cache) => cache.match(event.request.url))
+    )
+  } else if (isHtmlGetRequest(event.request)) {
+    event.respondWith(
+      caches
+        .open('html-runtime-cache')
+        .then((cache) => cache.match(event.request))
+        .then((response) =>
+          response
+            ? response
+            : fetchAndCache(event.request, 'html-runtime-cache')
+        )
+        .catch(() => {
+          return caches
+            .open(cacheName)
+            .then((cache) => cache.match('/offline/'))
+        })
+    )
+  }
+})
 
-// self.addEventListener('activate', (event) => {
-//   console.log('[ServiceWorker] activate')
+const getPathName = (requestUrl) => {
+  // get pathnames to receive info
+  const url = new URL(requestUrl)
+  console.log(url.pathname)
+  return url.pathname
+}
 
-//   event.waitUntil(
-//     caches.keys().then((cacheNames) => {
-//       return Promise.all(
-//         cacheNames.map((thisCacheName) => {
-//           if (
-//             thisCacheName.includes('precache') &&
-//             thisCacheName !== cacheName
-//           ) {
-//             console.log(
-//               '[ServiceWorker] Removing cached files from old cache - ',
-//               thisCacheName
-//             )
-//             return caches.delete(thisCacheName)
-//           }
-//         })
-//       )
-//       // return Promise.all(
-//       //   cacheNames.map((myCache) => {
-//       //     if (myCache !== cacheName) {
-//       //       console.log('[ServiceWorker] Removing Cached Files from -', myCache)
-//       //       return caches.delete(myCache)
-//       //     }
-//       //   })
-//       // )
-//     })
-//   )
-// })
+const fetchAndCache = (request, cachename) => {
+  return fetch(request).then((response) => {
+    const clone = response.clone()
+    caches.open(cachename).then((cache) => cache.put(request, clone))
+    return response
+  })
+}
 
-// self.addEventListener('activate', (event) => {
-//   console.log('[ServiceWorker] Activated')
-
-//   event.waitUntil(
-//     caches.keys().then((cacheNames) => {
-//       return Promise.all(
-//         cacheNames.map((thisCacheName) => {
-//           if (
-//             thisCacheName.includes('precache') &&
-//             thisCacheName !== precacheName
-//           ) {
-//             console.log(
-//               '[ServiceWorker] Removing cached files from old cache - ',
-//               thisCacheName
-//             )
-//             return caches.delete(thisCacheName)
-//           }
-//         })
-//       )
-//     }) // end caches.keys()
-//   ) // end e.waitUntil
-// })
-
-// self.addEventListener('fetch', (event) => {
-//   console.log('[ServiceWorker] Fetch event for ', event.request.url)
-// })
-
-// // self.addEventListener('fetch', (event) => {
-// //   console.log('[ServiceWorker] fetch event for :', event.request.url)
-
-// //   // Check HTML requests
-// //   if (
-// //     event.request.method('GET') &&
-// //     event.request.headers.get('accept') !== null &&
-// //     event.request.headers.get('accept').indexOf('text/html') > -1
-// //   ) {
-// //     event.respondWith(
-// //       fetch(event.request).catch(() => {
-// //         return caches.open(cacheName).then((cache) => cache.match('/offline/'))
-// //       })
-// //     )
-// //   }
-// // })
-
-// // self.addEventListener('install', (event) => {
-// //   console.log('install')
-
-// //   event.waitUntil(
-// //     caches.open('my-cache').then((cache) => {
-// //       return cache.addAll(['/offline/']).then(() => {
-// //         self.skipWaiting()
-// //       })
-// //     })
-// //   )
-// // })
-
-// // self.addEventListener('activate', (event) => {
-// //   console.log('activate')
-// // })
-
-// // self.addEventListener('fetch', (event) => {
-// //   console.log('fetch event for: ', event.request.url)
-
-// //   // HTML get request
-// //   if (
-// //     event.request.method('GET') &&
-// //     event.request.headers.get('accept') !== null &&
-// //     event.request.headers.get('accept').indexOf('text/html') > -1
-// //   ) {
-// //     event.respondWith(
-// //       fetch(event.request).catch(() => {
-// //         return caches.open('my-cache').then((cache) => {
-// //           cache.match('/offline')
-// //         })
-// //       })
-// //     )
-// //   }
-// // })
+const isHtmlGetRequest = (request) => {
+  // Check for HTML get request
+  return (
+    request.method === 'GET' &&
+    request.headers.get('accept') !== null &&
+    request.headers.get('accept').indexOf('text/html') > -1
+  )
+}
