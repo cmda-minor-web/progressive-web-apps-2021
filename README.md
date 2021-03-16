@@ -70,5 +70,6 @@ Week 1:
 During the start of the course PWA we received a quick summary of what it entailed on the first day. Then I made an action plan and first figured out what Node JS is and what the pros / cons are. Then I installed node and added it to my application. I kind of copied my old WAFS application and adapted it further. Day two I received clear instructions from Joost Faber who explained how best to start and which example you can use. It was all new to me so I had no idea how to show html on the page or even use Node. I researched this and finally managed to create the index.js page and linked everything together.
 
 Week 2:
+Service workers, manifest, detailpage
 
 Week 3:
