@@ -1,4 +1,5 @@
 import {
+  Article,
   Button,
   Div,
   Details,
@@ -15,18 +16,20 @@ export const Detail = () => {
 
   // Add div element for filter
   const elements = document.querySelector('#elements')
-  const div = Div('filterElem')
-  elements.appendChild(div)
+  const article = Article('filterElem')
+  const div = Div('filterWrapper')
+  elements.appendChild(article)
+  article.appendChild(div)
 
   // Event for test button
   const test = document.querySelector('#editBtn')
   test.addEventListener('click', (event) => {
-    div.classList.toggle('active')
+    article.classList.toggle('active')
     console.log('Button clicked')
   })
 
   // Apply filter to div elem
-  const filterDiv = document.querySelector('#filterElem')
+  const filterDiv = document.querySelector('#filterWrapper')
   filterElements.forEach((item) => {
     const details = Details()
     const summary = Summary(item.filter)
