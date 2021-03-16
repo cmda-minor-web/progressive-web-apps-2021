@@ -1,5 +1,5 @@
 {{#each data }}
-    <a href="/image/{{this.id}}">
+    <a href="/image/{{this.id}}" rel="prefetch">
       <img src="{{this.urls.small}}" alt="{{this.alt_description}}">
     </a>
 {{/each}}
