@@ -1,25 +1,36 @@
-import { Div, Details, inputSlider, Summary } from './elements/index.js'
+import {
+  Button,
+  Div,
+  Text,
+  Details,
+  inputSlider,
+  Summary,
+} from '../components/elements/index.js'
 import { filterElements } from './filterValues.js'
 
 export const addFilter = () => {
   // Apply filter to div elem
-  const filterDiv = document.querySelector('#filterWrapper')
+  const wrapper = document.querySelector('#allOptions')
+  const editor = Div('editor')
+  wrapper.appendChild(editor)
+
   filterElements.forEach((item) => {
     const details = Details()
     const summary = Summary(item.filter)
     const div = Div('slider')
     const inputRange = inputSlider(Object.values(item))
 
-    filterDiv.appendChild(details)
+    editor.appendChild(details)
     details.appendChild(summary)
     details.appendChild(div)
     div.appendChild(inputRange)
   })
 
-  const firstEl = Array.from(filterDiv.childNodes)
+  const firstEl = Array.from(editor.childNodes)
+  console.log(firstEl)
   firstEl[0].setAttribute('open', 'true')
 
-  const elem = Array.from(filterDiv.childNodes)
+  const elem = Array.from(editor.childNodes)
 
   elem.forEach((targetDetail) => {
     targetDetail.addEventListener('click', () => {
@@ -56,7 +67,9 @@ export const addFilter = () => {
   })
 
   const saveBtn = document.querySelector('#saveBtn')
-  saveBtn.addEventListener('click', (e) => {
+  saveBtn.addEventListener('click', (event) => {
+    console.log('saved')
+    popUp()
     let oldItems = JSON.parse(localStorage.getItem('images')) || []
     let newItem = {
       image: document.querySelector('#selectedImg').currentSrc,
@@ -65,6 +78,27 @@ export const addFilter = () => {
     oldItems.push(newItem)
     localStorage.setItem('images', JSON.stringify(oldItems))
     console.log(newItem)
+  })
+
+  const downBtn = document.querySelector('#downBtn')
+  downBtn.addEventListener('click', (event) => {
+    console.log('download')
+  })
+}
+
+const popUp = () => {
+  const main = document.querySelector('main')
+  const div = Div('popup')
+  const text = Text('Image saved to profile.')
+  const button = Button('X', 'closePopup')
+  main.appendChild(div)
+  div.appendChild(text)
+  div.appendChild(button)
+
+  const closePopup = document.querySelector('#closePopup')
+  closePopup.addEventListener('click', (event) => {
+    const elem = document.querySelector('#popup')
+    elem.parentNode.removeChild(elem)
   })
 }
 
