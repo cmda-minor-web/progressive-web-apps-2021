@@ -1,32 +1,29 @@
-// Imports and handlebars setup
-const express = require('express'),
-  app = express(),
-  path = require('path'),
-  expressHandlebars = require('express-handlebars'),
-  router = require('./src/routes/router'),
-  templates = path.join(__dirname, 'src/views'),
-  port = process.env.PORT || 8080,
-  hbs = expressHandlebars.create({
-    defaultLayout: 'main',
-    layoutsDir: path.join(__dirname, './src/views/layouts'),
-    partialsDir: './src/views/partials',
-    extname: '.hbs',
-    helpers: {
-      listen: (input) => {
-        return console.log(input)
-      },
+const express = require('express')
+const path = require('path')
+const router = require('./routes/router')
+const exphbs = require('express-handlebars')
+require('dotenv').config()
+
+const app = express()
+const port = 8080
+const hbs = exphbs.create({
+  defaultLayout: 'main',
+  layoutsDir: path.join(__dirname, 'views/layouts'),
+  partialsDir: 'views/partials',
+  extname: '.hbs',
+
+  helpers: {
+    listen: function (input) {
+      return console.log(input)
     },
-  })
+  },
+})
 
-// Middleware
-app
-  .engine('.hbs', hbs.engine)
-  .set('view engine', '.hbs')
-  .set('views', templates)
-  .use(express.static('public'))
-  .use(router)
+app.engine('.hbs', hbs.engine)
+app.set('view engine', '.hbs')
+app.use(express.static('static'))
+app.use('/', router)
 
-// Launch application
 app.listen(port, function () {
-  console.log(`App can be opened on http://localhost:${port}`)
+  console.log(`App is listening on ${port}!`)
 })

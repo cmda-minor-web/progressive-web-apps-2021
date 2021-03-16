@@ -1,0 +1,136 @@
+:root {
+  --uiBlack: #161617;
+  --colorPrimary: #27272f;
+  --colorAccent: #ec904c;
+  --colorSoftWhite: #f5f5f5;
+  --textCol: #edf2ef;
+  --textColLabel: #908e9b;
+  --textColPrim: #e1dfe9;
+  --sizeS1: 0.25rem;
+  --sizeS2: 0.375rem;
+  --sizeS3: 0.5rem;
+  --sizeS4: 0.75rem;
+  --sizeM1: 1rem;
+  --sizeM2: 1.25rem;
+  --sizeM3: 1.5rem;
+  --sizeL1: 2rem;
+  --sizeL2: 3rem;
+  --sizeL3: 4rem;
+  font-size: 16px;
+}
+
+.editorPage {
+  width: unset;
+  max-width: unset;
+  margin: unset;
+}
+
+/**************************************/
+/*********    Editor page     *********/
+/**************************************/
+
+.editorPage main section {
+  width: 100%;
+}
+
+.editorPage main section:nth-of-type(1),
+.editorPage main section:nth-of-type(3),
+.editorPage main section:nth-of-type(4) {
+  width: calc(100% - 2rem);
+  margin: 0 1rem;
+}
+
+/********* Owner information *********/
+
+.editorPage main section:nth-of-type(1) {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 2rem;
+}
+
+.editorPage main section:nth-of-type(1) article:nth-of-type(1) {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.editorPage main section:nth-of-type(1) article:nth-of-type(1) img {
+  border-radius: 50%;
+  margin-right: 0.5rem;
+}
+
+.editorPage main section:nth-of-type(1) article:nth-of-type(1) div h3 {
+  font-size: var(--sizeM1);
+  font-weight: 700;
+}
+
+.editorPage main section:nth-of-type(1) article:nth-of-type(1) div h4 {
+  font-size: var(--sizeS4);
+  font-weight: 300;
+}
+
+.editorPage main section:nth-of-type(1) article:nth-of-type(2) {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.editorPage main section:nth-of-type(1) article:nth-of-type(2) button {
+  padding: 0.5rem 1rem;
+}
+
+/********* Image info *********/
+
+.editorPage main section:nth-of-type(2) img {
+  width: 100%;
+}
+
+/********* Image stats *********/
+
+.editorPage main section:nth-of-type(3) {
+  margin-top: 2rem;
+}
+
+.editorPage main section:nth-of-type(3) article ul {
+  width: 80%;
+  max-width: 500px;
+  margin: 0 auto;
+  display: flex;
+  justify-content: space-between;
+  list-style-type: none;
+}
+
+.editorPage main section:nth-of-type(3) article ul li {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+/********* Popular images *********/
+
+.editorPage main section:nth-of-type(4) {
+  margin-top: 2rem;
+}
+
+.editorPage main section:nth-of-type(4) article {
+  margin-top: 1rem;
+  display: grid;
+  grid-template-columns: auto auto auto;
+  grid-gap: 0.75rem;
+  grid-auto-flow: dense;
+}
+
+.editorPage main section:nth-of-type(4) article a:nth-child(2n + 3) {
+  grid-row-start: span 2;
+}
+
+.editorPage main section:nth-of-type(4) article a img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: 0.3s;
+}
+
+.editorPage main section:nth-of-type(4) article a {
+  width: unset;
+}
