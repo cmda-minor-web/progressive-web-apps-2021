@@ -1,18 +1,15 @@
-import {fetchData, getData} from './modules/fetching.js';
-import {routeHandler} from './modules/routing.js';
-import {renderMovies} from './modules/render.js';
-import {renderPeople} from './modules/people.js';
+if ('serviceWorker' in navigator) {
 
-async function init() {
-    const data = await fetchData()
-    renderMovies(data)
-    routeHandler(data);
+    window.addEventListener("load", function() {
+
+        navigator.serviceWorker.register('/sw.js')
+
+            .then(function(registration) {
+
+                return registration.update();
+
+            })
+
+    });
+
 }
-init();
-
-// async function initPeople() {
-//     const dataPeople = await getData()
-//     renderPeople(dataPeople)
-// }
-// initPeople()
-

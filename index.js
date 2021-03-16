@@ -23,12 +23,14 @@ app.get('/', async (req, res) => {
     })
 });
 
-app.get('id', function (req, res) {
+app.get('/:id', function (req, res) {
+  let id = req.params.id
   fetch(endpointOne)
-  .then(show => show.json)
+  .then(show => show.json())
   .then (dataDetailpage => {
-    const detailpage = dataDetailpage
-    res.render('detailpage.ejs', {detailpage});
+    let filtermovie = dataDetailpage.filter(movie => movie.id == id)[0]
+    console.log(filtermovie);
+    res.render('detailpage.ejs', {filtermovie});
   })
 });
 

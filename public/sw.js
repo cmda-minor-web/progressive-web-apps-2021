@@ -2,7 +2,7 @@ const staticCacheName = "site-static";
 const assets = [
   "/",
   "/index.js",
-  "/offline.ejs/",
+  "/offline",
   "/css/style.css",
   "/img/logo.png",
   "/img/movie1.jpg",
@@ -32,7 +32,7 @@ self.addEventListener("fetch", (event) => {
 
   event.respondWith(
     fetch(event.request).catch((error) => {
-      return caches.open("my-cache").then((cache) => cache.match("/offline.ejs/"));
+      return caches.open("my-cache").then((cache) => cache.match("/offline"));
     })
   );
 });
