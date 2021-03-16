@@ -54,6 +54,18 @@ export const addFilter = () => {
     })
     return computedFilters
   })
+
+  const saveBtn = document.querySelector('#saveBtn')
+  saveBtn.addEventListener('click', (e) => {
+    let oldItems = JSON.parse(localStorage.getItem('images')) || []
+    let newItem = {
+      image: document.querySelector('#selectedImg').currentSrc,
+      styles: computedFilters,
+    }
+    oldItems.push(newItem)
+    localStorage.setItem('images', JSON.stringify(oldItems))
+    console.log(newItem)
+  })
 }
 
 // const buttons = document.querySelector('#buttons')

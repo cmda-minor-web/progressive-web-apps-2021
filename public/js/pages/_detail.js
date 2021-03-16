@@ -11,6 +11,10 @@ export const Detail = () => {
   const options = Button('Options', 'optionBtn')
   btnWrapper.appendChild(options)
 
+  // Add save button, to save files in localStorage
+  const saveBtn = Button('Save', 'saveBtn')
+  allBtns.appendChild(saveBtn)
+
   // Add edit button. To open filter pop-up
   const editButton = Button('Edit', 'editBtn')
   allBtns.appendChild(editButton)
@@ -32,6 +36,10 @@ export const Detail = () => {
   const optionBtn = document.querySelector('#optionBtn')
   optionBtn.addEventListener('click', (event) => {
     allBtns.classList.toggle('active')
+
+    if (article.classList.contains('active')) {
+      article.classList.remove('active')
+    }
   })
 
   addFilter()

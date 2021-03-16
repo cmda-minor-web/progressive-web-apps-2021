@@ -166,10 +166,6 @@ input[type='submit'] {
 
 .header nav ul li a {
   line-height: 32px;
-}
-
-.header nav ul li a::before {
-  content: '\f406';
   font-family: FontAwesome;
   font-size: var(--sizeM2);
   color: var(--uiWhite);

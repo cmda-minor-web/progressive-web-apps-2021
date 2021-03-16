@@ -22,9 +22,12 @@
             Profile page header
 **************************************/
 
+.profilePage * {
+  color: var(--textCol);
+}
 .profilePage header a {
   /* flex: 1; */
-  color: var(--colorPrimary);
+  color: var(--textCol);
   text-decoration: none;
   display: flex;
   line-height: 2rem;
@@ -78,7 +81,6 @@
 }
 
 .profilePage main article:nth-child(1) div a {
-  color: black;
   margin: 1em;
   font-size: 2em;
   text-decoration: none;

@@ -8,9 +8,14 @@ if ('serviceWorker' in navigator) {
       console.log('ServiceWorker registration failed: ', err)
     })
 }
+
 import { Home, Detail, Profile } from './pages/index.js'
+import { LocalStorageSetup } from './utils/storage/localStorage.js'
 
 const init = () => {
+  // Insert local Storage
+  LocalStorageSetup()
+
   if (window.location.pathname === '/') {
     Home()
   } else if (window.location.pathname === '/profile') {

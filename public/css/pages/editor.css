@@ -213,6 +213,7 @@
     left: 50%;
     transform: translateX(-50%);
     max-height: 100%;
+    max-width: 100%;
     width: auto;
     margin: 0 auto;
   }
@@ -307,11 +308,11 @@
 #filterElem {
   position: absolute;
   z-index: 10;
-  top: 50vh;
+  top: 96px;
   right: 0;
-  width: 230px;
+  width: 200px;
   min-height: 200px;
-  background-color: hotpink;
+  background-color: #272727;
   display: none;
 }
 
@@ -319,6 +320,68 @@
   opacity: 1;
   display: grid;
   place-items: center;
+  right: 0;
+  left: unset;
+  top: 200px;
+  width: 200px;
+}
+
+#filterElem.active div {
+  width: 100%;
+  padding: 1em 0.5em;
+}
+
+#filterElem div details {
+  height: 24px;
+  position: relative;
+  margin: 0.25em 0;
+}
+
+#filterElem div details:focus {
+  width: 100%;
+}
+
+#filterElem div details[open] {
+  height: 50px;
+}
+
+#filterElem div details summary {
+  height: 100%;
+  line-height: 24px;
+  padding-left: 1em;
+}
+
+#filterElem div details summary::first-letter {
+  text-transform: uppercase;
+}
+
+#filterElem div details summary:before {
+  position: absolute;
+  background-color: #666666;
+  border: 1px solid #666666;
+  border-radius: 50%;
+  font-family: FontAwesome;
+  content: '\f302';
+  line-height: 2rem;
+  transition: 0.3s ease;
+  font-size: 10px;
+  width: 24px;
+  height: 24px;
+  left: 3px;
+  top: 0;
+  line-height: 24px;
+  text-align: center;
+}
+
+#filterElem div details[open] div {
+  padding: 0;
+  position: relative;
+  top: -23px;
+  width: 100%;
+}
+
+#filterElem input#applyFilter {
+  width: 100%;
 }
 
 @media (min-width: 1024px) {
