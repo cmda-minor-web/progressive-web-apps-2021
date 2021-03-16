@@ -14,12 +14,12 @@
       },
       {
         "src": "/img/Movie2.jpg",
-        "sizes": "600x600",
+        "sizes": "480x480",
         "type": "image/jpg"
       },
       {
         "src": "/img/Movie3.jpg",
-        "sizes": "800x800",
+        "sizes": "480x480",
         "type": "image/jpg"
       }
     ]

@@ -1,8 +1,6 @@
-const staticCacheName = "site-static";
+const CORE_CACHE = "site-static";
 const assets = [
   "/",
-  "/index.js",
-  "/offline",
   "/css/style.css",
   "/img/logo.png",
   "/img/movie1.jpg",
@@ -31,7 +29,7 @@ self.addEventListener("install", (event) => {
     console.log("fetch event for: ", event.request.url);
     
     event.respondWith(
-      caches.open(CORE_CACHE_NAME).then(cache => {
+      caches.open(CORE_CACHE).then(cache => {
         return cache.match(event.request)
         .then(response => {
           if(response) {
@@ -43,7 +41,7 @@ self.addEventListener("install", (event) => {
             return response
           })
         }).catch((err) => {
-          return caches.open(CORE_CACHE_NAME).then(cache => cache.match('/offline'))
+          return caches.open(CORE_CACHE).then(cache => cache.match("/offline"))
         })
       })
       )
