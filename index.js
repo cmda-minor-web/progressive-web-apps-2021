@@ -32,4 +32,8 @@ app.get('id', function (req, res) {
   })
 });
 
+app.get("/offline", (req, res) => {
+  res.render("offline.ejs");
+});
+
 app.listen(port, () => console.log(`App is running on port ${port}`));

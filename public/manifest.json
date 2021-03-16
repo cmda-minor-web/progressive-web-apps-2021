@@ -1,0 +1,26 @@
+{
+    "theme_color": "#002f51",
+    "background_color": "#002f51",
+    "display": "standalone",
+    "scope": "/",
+    "start_url": "/",
+    "name": "Ghibli Movies PWA",
+    "short_name": "Ghibli Movies ",
+    "icons": [
+      {
+        "src": "/img/Movie1.jpg",
+        "sizes": "960x480",
+        "type": "image/jpg"
+      },
+      {
+        "src": "/img/Movie2.jpg",
+        "sizes": "1200x675",
+        "type": "image/jpg"
+      },
+      {
+        "src": "/img/Movie3.jpg",
+        "sizes": "2000x1125",
+        "type": "image/jpg"
+      }
+    ]
+  }
