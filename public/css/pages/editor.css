@@ -177,7 +177,7 @@
     margin-top: 2em;
     display: grid;
     grid-template-columns: 3fr 1fr;
-    grid-template-rows: auto;
+    grid-template-rows: 4fr 3fr;
   }
 
   .editorPage > main > div section:nth-of-type(1) {
@@ -618,4 +618,36 @@ input[type='range']:focus::-ms-fill-upper {
 
 #popup button {
   padding: 0.5em 2em;
+}
+
+@media (min-width: 1024px) {
+  #buttonWrapper {
+    height: 100%;
+  }
+  #buttonWrapper #allOptions {
+    position: absolute;
+    bottom: 0;
+  }
+  #allOptions.active {
+    border-radius: 10px;
+    box-shadow: 0px -5px 14px 8px rgb(255 255 255 / 10%),
+      0 6px 10px 0 rgb(255 255 255 / 9%);
+  }
+  div#editor,
+  div#slider {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+  }
+  div#editor::-webkit-scrollbar,
+  div#slider::-webkit-scrollbar {
+    display: none;
+  }
+  #allOptions.active div details {
+    margin: 0;
+  }
+  #allOptions.active div details:first-of-type summary,
+  #allOptions.active div details:last-of-type summary {
+    margin-left: 0;
+    margin-right: 0;
+  }
 }

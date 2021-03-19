@@ -1,22 +1,22 @@
 // Imports and handlebars setup
-const express = require('express'),
-  app = express(),
-  path = require('path'),
-  expressHandlebars = require('express-handlebars'),
-  router = require('./src/routes/router'),
-  templates = path.join(__dirname, 'src/views'),
-  port = process.env.PORT || 8080,
-  hbs = expressHandlebars.create({
-    defaultLayout: 'main',
-    layoutsDir: path.join(__dirname, './src/views/layouts'),
-    partialsDir: './src/views/partials',
-    extname: '.hbs',
-    helpers: {
-      listen: (input) => {
-        return console.log(input)
-      },
+const express = require('express')
+const app = express()
+const path = require('path')
+const expressHandlebars = require('express-handlebars')
+const router = require('./src/routes/router')
+const templates = path.join(__dirname, 'src/views')
+const port = process.env.PORT || 8080
+const hbs = expressHandlebars.create({
+  defaultLayout: 'main',
+  layoutsDir: path.join(__dirname, './src/views/layouts'),
+  partialsDir: './src/views/partials',
+  extname: '.hbs',
+  helpers: {
+    listen: (input) => {
+      return console.log(input)
     },
-  })
+  },
+})
 
 // Middleware
 app
