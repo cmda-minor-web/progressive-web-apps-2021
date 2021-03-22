@@ -3,9 +3,9 @@ const assets = [
   "/",
   "/css/style.css",
   "/img/logo.png",
-  "/img/movie1.jpg",
-  "/img/movie2.jpg",
-  "/img/movie3.jpg",
+  "/img/Movie1.jpg",
+  "/img/Movie2.jpg",
+  "/img/Movie3.jpg",
 ];
 
 // installed event
