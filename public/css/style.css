@@ -113,3 +113,8 @@
     font-size: 1.5em;
     text-align: center;
   }
+
+  .images {
+    float: left;
+    max-width: 50%;
+  }
