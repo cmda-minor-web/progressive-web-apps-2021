@@ -3,6 +3,7 @@ const app = express();
 const port = 3000;
 const fetch = require('node-fetch');
 const endpointOne = 'https://ghibliapi.herokuapp.com/films';
+const endpointTwo = 'https://ghibliapi.herokuapp.com/people';
 
 // Using static files from static directory
 app.use(express.static('public'));
@@ -14,7 +15,11 @@ app.use('/css', express.static(__dirname + 'public/css'));
 app.set('views', './views');
 app.set('view engine', 'ejs');
 
-app.get('/', async (req, res) => {
+app.get("/", (req, res) => {
+  res.render("home.ejs");
+});
+
+app.get('/movies', async (req, res) => {
     fetch(endpointOne)
     .then(resp => resp.json())
     .then(data => {
@@ -23,14 +28,32 @@ app.get('/', async (req, res) => {
     })
 });
 
+app.get('/people', async (req, res) => {
+  fetch(endpointTwo)
+  .then(resp => resp.json())
+  .then(dataPeople => {
+    const people = dataPeople
+    res.render('people.ejs', { people });
+  })
+});
+
 app.get('/:id', function (req, res) {
   let id = req.params.id
   fetch(endpointOne)
   .then(show => show.json())
   .then (dataDetailpage => {
     let filtermovie = dataDetailpage.filter(movie => movie.id == id)[0]
-    console.log(filtermovie);
-    res.render('detailpage.ejs', {filtermovie});
+    res.render('moviedetails.ejs', {filtermovie});
+  })
+});
+
+app.get('/:name', function (req, res) {
+  let name = req.params.name
+  fetch(endpointTwo)
+  .then(show => show.json())
+  .then (peopleDetailpage => {
+    let filterpeople = peopleDetailpage.filter(people => people.name == name)[0]
+    res.render('peopledetails.ejs', {filterpeople});
   })
 });
 
