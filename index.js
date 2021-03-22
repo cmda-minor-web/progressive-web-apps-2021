@@ -37,7 +37,7 @@ app.get('/people', async (req, res) => {
   })
 });
 
-app.get('/:id', function (req, res) {
+app.get('/movies/:id', function (req, res) {
   let id = req.params.id
   fetch(endpointOne)
   .then(show => show.json())
@@ -47,7 +47,7 @@ app.get('/:id', function (req, res) {
   })
 });
 
-app.get('/:name', function (req, res) {
+app.get('/people/:name', function (req, res) {
   let name = req.params.name
   fetch(endpointTwo)
   .then(show => show.json())

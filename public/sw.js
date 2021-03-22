@@ -4,6 +4,7 @@ const assets = [
   "/css/style.css",
   "/img/logo.png",
   "/img/Movie1.jpg",
+  "/offline",
 ];
 
 // installed event

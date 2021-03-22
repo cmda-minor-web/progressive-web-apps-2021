@@ -1,7 +1,7 @@
     <%- include('./partials/head'); %>
 <body>
     <% movies.forEach(movie => { %>
-       <a href="/<%= movie.id %>">
+       <a href="/movies/<%= movie.id %>">
         <div class="card">
             <h1><%= movie.title %></h1>
         </div>    
