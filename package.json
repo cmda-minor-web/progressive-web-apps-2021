@@ -6,7 +6,12 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "node app.js",
-    "dev": "nodemon app.js"
+    "dev": "nodemon app.js",
+    "prebuild": "rimraf ./dist",
+    "build": "npm-run-all build:static:css build:static:js build:assets",
+    "build:static:css": "node scripts/build_css.js",
+    "build:static:js": "webpack --config webpack.config.js",
+    "build:assets": "node scripts/build_assets.js"
   },
   "repository": {
     "type": "git",
@@ -21,7 +26,17 @@
   "homepage": "https://github.com/joordy/progressive-web-apps-2021#readme",
   "devDependencies": {
     "eslint": "^7.21.0",
-    "prettier": "^2.2.1"
+    "gulp": "^4.0.2",
+    "gulp-autoprefixer": "^7.0.1",
+    "gulp-clean-css": "^4.3.0",
+    "gulp-concat": "^2.6.1",
+    "gulp-uglify": "^3.0.2",
+    "nodemon": "^2.0.7",
+    "npm-run-all": "^4.1.5",
+    "prettier": "^2.2.1",
+    "rimraf": "^3.0.2",
+    "webpack": "^5.27.1",
+    "webpack-cli": "^4.5.0"
   },
   "dependencies": {
     "body-parser": "^1.19.0",
@@ -29,7 +44,6 @@
     "express": "^4.17.1",
     "express-handlebars": "^5.2.1",
     "node-fetch": "^2.6.1",
-    "nodemon": "^2.0.7",
     "unsplash-js": "^7.0.4"
   }
 }

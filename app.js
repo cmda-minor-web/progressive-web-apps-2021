@@ -23,7 +23,7 @@ app
   .engine('.hbs', hbs.engine)
   .set('view engine', '.hbs')
   .set('views', templates)
-  .use(express.static('public'))
+  .use(express.static('dist'))
   .use(router)
 
 // Launch application
