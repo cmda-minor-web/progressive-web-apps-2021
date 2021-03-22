@@ -1,6 +1,6 @@
 const express = require('express');
 const app = express();
-const port = 3000;
+const PORT = process.env.PORT || 3000;
 const fetch = require('node-fetch');
 const endpointOne = 'https://ghibliapi.herokuapp.com/films';
 const endpointTwo = 'https://ghibliapi.herokuapp.com/people';
@@ -61,4 +61,4 @@ app.get("/offline", (req, res) => {
   res.render("offline.ejs");
 });
 
-app.listen(port, () => console.log(`App is running on port ${port}`));
+app.listen(PORT, () => console.log(`App is running on port ${PORT}`));
