@@ -1,7 +1,7 @@
 * {
     box-sizing: border-box
   }
-  
+
   html {
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
@@ -32,18 +32,12 @@
     margin: 3rem auto;
     max-width: 50%;
   }
-  
-  p {
-    padding: 0 2.5rem 2.5rem;
-    margin: 0;
-  }
 
   .card {
     margin: 2rem 2rem;
     box-shadow: 2px 4px 25px rgba(0, 0, 0, .1);
     border-radius: 12px;
     transition: all .2s linear;
-    float: left;
   }
   
   .card:hover {
@@ -102,7 +96,7 @@
   }
 
   h2 {
-    font-family: 'Big Shoulders Display', cursive;
+    font-family: 'roboto';
     font-size: 3.5em;
     text-transform: uppercase;
     text-align: center;
@@ -117,4 +111,18 @@
   .images {
     float: left;
     max-width: 50%;
+  }
+
+  div {
+    text-align: center;
+  }
+
+  footer {
+    position: fixed;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    background-color: rgb(153, 144, 144);
+    color: white;
+    text-align: center;
   }

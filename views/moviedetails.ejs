@@ -1,7 +1,6 @@
 <%- include('./partials/head'); %>
 <body>
     <section>
-        <a href="/">Return to homepage</a>
         <h2>Movie information</h2>
         <div class="description"><p>description</p>
             <%= filtermovie.description %>
@@ -12,7 +11,5 @@
         <div class="release_date"><p>release date</p>
             <%= filtermovie.release_date %>
         </div>
-        
     </section>
-</body>
-</html>
+    <%- include('./partials/footer'); %>
