@@ -1,4 +1,5 @@
 const express = require('express');
+const compression = require('compression')
 const app = express();
 const PORT = process.env.PORT || 3000;
 const fetch = require('node-fetch');
@@ -10,6 +11,8 @@ app.use(express.static('public'));
 app.use('/js', express.static(__dirname + 'public/js'));
 app.use('/img', express.static(__dirname + 'public/img'));
 app.use('/css', express.static(__dirname + 'public/css'));
+
+app.use(compression());
 
 // Setting views (EJS)
 app.set('views', './views');

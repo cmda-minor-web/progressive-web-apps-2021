@@ -1,7 +1,7 @@
 const CORE_CACHE = "site-static";
 const assets = [
   "/",
-  "/css/style.css",
+  "/css/index.css",
   "/img/logo.png",
   "/img/Movie1.jpg",
   "/offline",
@@ -13,7 +13,7 @@ self.addEventListener("install", (event) => {
   
   // pre-cache offline page and update cache automaticly
   event.waitUntil(
-    caches.open("my-cache").then((cache) => {
+    caches.open(CORE_CACHE).then((cache) => {
       return cache.addAll(assets).then(() => self.skipWaiting());
     })
     );
