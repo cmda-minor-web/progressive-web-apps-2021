@@ -14,7 +14,7 @@ In this course I will convert the client side web application previously made We
 
 ## Screenshot
 
-![Frontend ](https://github.com/NielsPeeters96/NielsPeeters_Web_App_From_Scratch/blob/main/img/Screenshot.png)
+![image](https://user-images.githubusercontent.com/78353674/113016813-1ee30280-917f-11eb-90ca-3d94d2c0aed4.png)
 
 #### Features
 - By clicking on movies or people you'll see all movies and people related to Ghibli Studios
