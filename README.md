@@ -85,6 +85,26 @@ app.listen(5000, () => console.log(`App is running on port 5000`));
 #### Templating engine
 For the templating engine I use EJS. I never worked with EJS so it's all new to me.
 
+### Building
+For the building I used Gulp. It was for me the first time I used a bundler/tooling. At the beginning I struggled a lot with building/minifying my code, because I didn't get it. But now I understand what tooling is. Tooling is a feature for the developer to smart and fast build your application.
+
+```
+"start": "node app.js",
+"build:css": "npm run node scripts/build-css.js",
+```
+
+#### Build CSS
+```js
+const gulp = require('gulp');
+const cleancss = require('gulp-clean-css');
+
+return gulp
+  .src('./css/style.css')
+  .pipe(cleancss())
+  .pipe(gulp.dest('./public/css'));
+
+```
+
 ### Performance
 
 ![image](https://user-images.githubusercontent.com/78353674/112648034-639e2f00-8e49-11eb-912b-0a0e9f8ebd8e.png)
