@@ -7,7 +7,7 @@ In this course I will convert the client side web application previously made We
 
 ### Things I completed
 1. Copy the WAFS application
-2. Added another endpoint (app was to small)
+2. Added another endpoint (app was too small)
 3. Check code and delete unnecessary features
 4. Install npm, Node.js and Express
 5. Change code to Node.js and Express
