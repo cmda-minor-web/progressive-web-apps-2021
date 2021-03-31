@@ -35,7 +35,7 @@ This app is built, using:
 ## Installation
 1. Clone the repository:  
 ```
-git clone https://github.com/ralfz123/progressive-web-apps-2021.git
+git clone https://github.com/NielsPeeters96/progressive-web-apps-2021.git
 ```
 
 2. Install dependencies   
